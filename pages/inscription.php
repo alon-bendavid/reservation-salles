@@ -56,7 +56,7 @@ $con->close();
     <div>
         <div class="profil">
             <h1>sign up page</h1>
-            <form action="inscription.php" method="post">
+            <form class="login-form" action="inscription.php" method="post">
                 <input type="text" placeholder="username" name="username"><br required>
                 <input type="password" placeholder="password" name="password" required><br>
                 <input type="password" placeholder="retype password" name="repass" required><br>

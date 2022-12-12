@@ -56,8 +56,7 @@ $con->close();
     <div class="connection_body">
         <div class="photo ">
 
-            <img class="mainPhoto" src="..\media\pexels-photo-1078983.jpg" alt="connection age photo">
-            <img class="logo" src="..\media\logo-01.png" alt="connection age photo">
+
 
             <h3 class="photo_text2">Send a comment in a bottle!</h3>
             <h2 class="photo_text">Welcome aboard!</h2>
@@ -69,7 +68,7 @@ $con->close();
         <div class="box ">
             <div class="connection_form">
                 <h2>Sign in!</h2>
-                <form action="connexion.php" method="post">
+                <form class="login-form" action="connexion.php" method="post">
                     <input type="text" placeholder="username" name="loginUsr"><br required>
 
                     <input type="password" placeholder="password" name="loginPwd" required><br>
@@ -81,8 +80,7 @@ $con->close();
                 </form>
                 <h3 class="small_link"><a href="inscription.php">
                         Not a member yet? <strong>Sign Up!</strong>
-                    </a></h3>
-                <a class="logoGit" href="https://github.com/alon-bendavid/livre-or"><img src="..\media\GitHub-Logo.png" alt=""></a>
+
             </div>
         </div>
     </div>

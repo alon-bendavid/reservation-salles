@@ -15,10 +15,11 @@
         // $usrId = $_SESSION['useInfo'][0];
         $editPass = $_POST['editPwd'];
         $rePwd = $_POST['rePwd'];
+        $hashed_password = password_hash($editPass, PASSWORD_DEFAULT);
         if ($editPass == $rePwd) {
             // $sql = "UPDATE utilisateurs SET 'login'=  '" . $_POST['editUsr'] . "'  , 'password'='" . $_POST['editPwd'] . "'   WHERE 'id' = 2 ";
             // $sql =  "UPDATE `utilisateurs` SET `login`='$editUsr',`password`='$editPass' WHERE $usrId";
-            $sql = "UPDATE `utilisateurs` SET `login`='$editUsr',`password`='$editPass' WHERE id = $id ";
+            $sql = "UPDATE `utilisateurs` SET `login`='$editUsr',`password`='$hashed_password' WHERE id = $id ";
             $query = $con->query($sql);
             if ($con->query($sql) === TRUE) {
                 echo "Record updated successfully";

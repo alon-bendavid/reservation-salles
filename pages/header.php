@@ -17,43 +17,42 @@ session_start();
 </head>
 <header>
     <nav>
-        <ul>
-            <img class="logoHeader" src="..\media\logo-01.png" alt="">
-            <div class="navBar" method="post">
-                <li> <a href="index.php">Home</a> </li>
-                <li> <a href="livre-or.php">Livre d'or</a> </li>
+
+        <div class="navbar" method="post">
+            <a href="index.php">Home</a>
+            <a href="livre-or.php">Livre d'or</a>
 
 
-                <!-- <li> <a href="connexion.php">Log In</a> </li> -->
-                <!-- <li> <a href="profile.php">Profile</a> </li> -->
-
-
-
-                <?php
-                if (isset($_SESSION['user'])) {
-                    echo "<li> <a href='commentaire.php'> Write a comment</a> </li>";
-                    echo "<li> <a href='profil.php'>Profil</a> </li>";
-                    echo "<li> <a href='logout.php'> Logout</a> </li>";
-                } else {
-                    echo "<li> <a href='inscription.php'>Sign Up</a> </li>";
-                    echo "<li> <a href='connexion.php'>Login</a> </li>";
-                }
-                // if (isset($_SESSION['user'])) {
-
-                //     echo  '<li class="message"> Welcome <br>  ' . $_SESSION['user'][1] . '   </li>';
-                // }
-                ?>
-
-                <table>
-
-                </table>
+            <!--  <a href="connexion.php">Log In</a>  -->
+            <!--  <a href="profile.php">Profile</a>  -->
 
 
 
+            <?php
+            if (isset($_SESSION['user'])) {
+                echo " <a href='commentaire.php'> Write a comment</a> ";
+                echo " <a href='profil.php'>Profil</a> ";
+                echo " <a href='logout.php'> Logout</a> ";
+            } else {
+                echo " <a href='inscription.php'>Sign Up</a> ";
+                echo " <a href='connexion.php'>Login</a> ";
+            }
+            // if (isset($_SESSION['user'])) {
 
-            </div>
+            //     echo  '<li class="message"> Welcome <br>  ' . $_SESSION['user'][1] . '   ';
+            // }
+            ?>
 
-        </ul>
+            <table>
+
+            </table>
+
+
+
+
+        </div>
+
+
     </nav>
 
 </header>
