@@ -2,6 +2,8 @@
 include('../includes/connect.php');
 include('header.php');
 
+$new_date = date('Y-m-d', strtotime($_POST['dateFrom']));
+echo $new_date;
 
 
 
@@ -15,7 +17,7 @@ include('header.php');
         echo "You have to be connected in order to write a comment.";
     }
     //create the query 
-    $result = mysqli_query($con, "SELECT * FROM commentaires ");
+    $result = mysqli_query($con, "SELECT * FROM reservations ");
     //echo the table with comments including user infomation
     echo "<table class='post' >
 <tr>

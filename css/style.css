@@ -1,12 +1,25 @@
+/* input{box-sizing:border-box}  */
 body{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+form{
+  justify-content: space-evenly;
+ display: flex;
+ flex-direction: column;
+ /* background-color: chartreuse; */
+}
+select{
+  width: 15%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
   /* Login form */
   .login-form {
-    width: 350px;
-    margin: 0 auto;
+    width: 28%;
+    height: 80vh;
+    /* margin: 0 auto; */
     padding: 20px;
     border: 1px solid #ddd;
   }

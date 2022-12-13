@@ -53,37 +53,26 @@ $con->close();
 ?>
 
 <body>
-    <div class="connection_body">
-        <div class="photo ">
+
+    <div class="login-form">
+
+        <h2>Sign in!</h2>
+        <form action="connexion.php" method="post">
+            <input type="text" placeholder="username" name="loginUsr"><br required>
+
+            <input type="password" placeholder="password" name="loginPwd" required><br>
+
+            <button type="submit" name="loginSub">
+                <h2 class="sign">Sign in</h2>
+            </button>
+
+        </form>
+        <h3 class="small_link"><a href="inscription.php">
+                Not a member yet? <strong>Sign Up!</strong>
 
 
-
-            <h3 class="photo_text2">Send a comment in a bottle!</h3>
-            <h2 class="photo_text">Welcome aboard!</h2>
-        </div>
-        <?php
-
-        ?>
-
-        <div class="box ">
-            <div class="connection_form">
-                <h2>Sign in!</h2>
-                <form class="login-form" action="connexion.php" method="post">
-                    <input type="text" placeholder="username" name="loginUsr"><br required>
-
-                    <input type="password" placeholder="password" name="loginPwd" required><br>
-
-                    <button type="submit" name="loginSub">
-                        <h2 class="sign">Sign in</h2>
-                    </button>
-
-                </form>
-                <h3 class="small_link"><a href="inscription.php">
-                        Not a member yet? <strong>Sign Up!</strong>
-
-            </div>
-        </div>
     </div>
+
 </body>
 
 </html>

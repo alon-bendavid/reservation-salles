@@ -37,25 +37,39 @@ $con->close();
 
 
 
-
 ?>
 
 
 <body>
-    <div>
-        <div class="profil">
-            <h1>Send a comment!</h1>
-            <form action="" method="post">
-                <textarea name="comment" id="" cols="30" rows="10" required></textarea>
-                <input type="hidden" name="usrId" value="<?php echo $_SESSION['user'][1] ?>"><br>
-                <input type="hidden" name="date" value="<?php echo date('Y-m-d H:i:s') ?>"><br>
 
-                <button class="sign" type="submit" name="subComment">Send</button>
+    <div class="login-form">
+        <h1>Reservation form</h1>
+        <?php echo "User: " . $_SESSION['user'][1]; ?>
+        <form action="" method="post">
+            Start hour: <select id="startHour" name="startHour">
+                <?php for ($i = 8; $i + 1 < 20; $i++) {  ?>
+                    <option value="volvo"><?php echo $i . "H" ?></option>
+                <?php } ?>
+            </select>
+            Finish hour: <select id="startHour" name="startHour">
+                <?php for ($x = 9; $x + 1 < 21; $x++) {  ?>
+                    <option value='$i'><?php echo $x . "H" ?></option>
+                <?php } ?><br>
+
+            </select>
+            <input type="date" name="dateFrom" value="<?php echo date('Y-m-d'); ?>" />
+            <br />
+
+            description:
+            <textarea name="description" id="" cols="30" rows="5" required></textarea><br>
+
+            <button class="sign" type="submit" name="subComment">Send</button>
 
 
-            </form>
-        </div>
+        </form>
     </div>
+
+
 </body>
 
 </html>
