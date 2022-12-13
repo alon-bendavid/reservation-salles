@@ -20,7 +20,7 @@ session_start();
 
         <div class="navbar" method="post">
             <a href="index.php">Home</a>
-            <a href="livre-or.php">Livre d'or</a>
+            <a href="planning.php">planning</a>
 
 
             <!--  <a href="connexion.php">Log In</a>  -->
