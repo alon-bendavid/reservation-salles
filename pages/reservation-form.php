@@ -5,15 +5,20 @@ include('header.php');
 include('../includes/connect.php');
 // date_default_timezone_set('europe/paris');
 
-
 if (isset($_POST['subComment'])) {
     $title = $_POST['title'];
     $startHour = $_POST['startHour'];
     $finishHour = $_POST['finishHour'];
     $date = $_POST['dateFrom'];
     $description = $_POST['description'];
-    // $userId = $_SESSION['user'];
+    $userName = $_SESSION['user'][1];
 
+    // $userIdQuery = "SELECT id FROM `utilisateurs` WHERE login='$userName'";
+    $userIdQuery = "SELECT id FROM utilisateurs WHERE login='$userName'";
+    $request = mysqli_query($con, $userIdQuery);
+    $userId = mysqli_fetch_array($request);
+    // echo $userId[0] . '<br>';
+    // echo $userName;
     // merage the date into one variable
     // $event_Stime = $date . ' ' . $startHour;
     // $event_time = date('Y-m-d h:i:s', strtotime($date . ' ' . $startHour));
@@ -25,7 +30,7 @@ if (isset($_POST['subComment'])) {
     echo $finish_time;
 
 
-    $sql = "INSERT INTO `reservations`(`id`, `titre`, `description`, `debut`, `fin`, `id_utilisateur`) VALUES (null,'$title','$description','$start_time','$finish_time',5)";
+    $sql = "INSERT INTO `reservations`(`id`, `titre`, `description`, `debut`, `fin`, `id_utilisateur`) VALUES (null,'$title','$description','$start_time','$finish_time','$userId[0]')";
     $query = mysqli_query($con, $sql);
 }
 
