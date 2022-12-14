@@ -4,6 +4,10 @@ body{
     flex-direction: column;
     align-items: center;
 }
+table, th, td {
+  border: 1px solid;
+}
+
 form{
   justify-content: space-evenly;
  display: flex;

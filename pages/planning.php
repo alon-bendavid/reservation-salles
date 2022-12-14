@@ -48,28 +48,36 @@ include('header.php');
     // while (strtotime($today) <= strtotime("+7 day", $week)) {
     //     echo "day";
     // }
-    date_default_timezone_set('europe/paris');
 
-    $start_date = date("Y/m/d ");
-    $end_date = date("Y-m-d ", strtotime("$start_date +7 day"));
-    // $end_date = '2022-12-20';
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    while (strtotime($start_date) <= strtotime($end_date)) {
-        echo "$start_date" . '<br>';
-        $start_date = date("Y-m-d ", strtotime("+1 days", strtotime($start_date)));
-        // $start_hour = date("h:i:s ");
-        // $end_hour = date("h:i:s ", strtotime("$start_date +7 hours"));
-        // while (strtotime($start_date) <= strtotime($end_date)) {
-        //     echo "$start_hour" . '<br>';
-        //     $start_date = date("h:i:s ", strtotime("+1 hour", strtotime($start_date)));
-        // }
-        $start = 8;
-        $end = 19;
-        for ($time = $start; $time <= $end; $time++) {
-            echo date("H:00:00", mktime($time)) . '<br>';
-        }
-    }
+
+    // date_default_timezone_set('europe/paris');
+
+    // $start_date = date("Y/m/d ");
+    // $end_date = date("Y-m-d ", strtotime("$start_date +7 day"));
+
+
+    // while (strtotime($start_date) <= strtotime($end_date)) {
+    //     echo "$start_date" . '<br>';
+    //     $start_date = date("Y-m-d ", strtotime("+1 days", strtotime($start_date)));
+
+    //     $start = 8;
+    //     $end = 19;
+    //     for ($time = $start; $time <= $end; $time++) {
+    //         echo date("H:00:00", mktime($time)) . '<br>';
+    //     }
+    // }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
     // $start_hour = date("h:i:s ");
     // $end_hour = date("h:i:s ", strtotime("$start_hour +7 hours"));
 
@@ -81,9 +89,45 @@ include('header.php');
     // }
 
     ?>
+    <table>
+
+        <?php
+        date_default_timezone_set('europe/paris');
+
+        $start_date = date("Y/m/d ");
+        $end_date = date("Y-m-d ", strtotime("$start_date +7 day"));
+        while (strtotime($start_date) <= strtotime($end_date)) {
+        ?>
+            <tr>
+
+                <?php echo '<th>' . "$start_date" . '<th>';
+
+                $start_date = date("Y-m-d ", strtotime("+1 days", strtotime($start_date)));
+                ?>
+                <?php
+                $start = 8;
+                $end = 19;
+                for ($time = $start; $time <= $end; $time++) {
+                ?>
+
+
+                    <?php
+                    echo '<td>' . date("H:00:00", mktime($time)) . '</td>';
+                    ?>
 
 
 
+                <?php
+                }
+                ?>
+
+
+            </tr>
+        <?php } ?>
+
+
+
+    </table>
 </body>
 
 </html>
