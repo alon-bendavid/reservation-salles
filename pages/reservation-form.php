@@ -3,14 +3,37 @@
 
 include('header.php');
 include('../includes/connect.php');
-date_default_timezone_set('europe/paris');
+// date_default_timezone_set('europe/paris');
+
+
+if (isset($_POST['subComment'])) {
+    $title = $_POST['title'];
+    $startHour = $_POST['startHour'];
+    $finishHour = $_POST['finishHour'];
+    $date = $_POST['dateFrom'];
+    $description = $_POST['description'];
+    // $userId = $_SESSION['user'];
+
+    // merage the date into one variable
+    // $event_Stime = $date . ' ' . $startHour;
+    // $event_time = date('Y-m-d h:i:s', strtotime($date . ' ' . $startHour));
+    $start_time = sprintf("%s %02d:%02d:00", $date,  $startHour, 00);
+    $finish_time = sprintf("%s %02d:%02d:00", $date,  $finishHour, 00);
+
+
+    echo $start_time . '<br>';
+    echo $finish_time;
+
+
+    $sql = "INSERT INTO `reservations`(`id`, `titre`, `description`, `debut`, `fin`, `id_utilisateur`) VALUES (null,'$title','$description','$start_time','$finish_time',5)";
+    $query = mysqli_query($con, $sql);
+}
+
+
 //fetch information
 // if (isset($_SESSION['user'])) {
 // }
-// if (isset($_POST['subComment'])) {
-//     $comment = $_POST['comment'];
-//     $usrId = $_POST['usrId'];
-//     $date = $_POST['date'];
+
 
 
 //     $sql = "SELECT * FROM commentaires ";
@@ -26,8 +49,6 @@ date_default_timezone_set('europe/paris');
 //     $sql = "INSERT INTO `commentaires`(`id`, `commentaire`, `id_utilisateur`, `date`) VALUES (null,'$comment','$usrId','$date')";
 //     $query = mysqli_query($con, $sql);
 //     echo "<p class='message'>Comment hes been sent!</p>";
-// }
-$con->close();
 
 
 ?>
@@ -39,12 +60,13 @@ $con->close();
         <h1>Reservation form</h1>
         <?php echo "User: " . $_SESSION['user'][1]; ?>
         <form action="" method="post">
-            Title:<input type="text" name="title" required>
+            Title:<input type="text" name="title">
 
 
             Start time: <select name="startHour">
                 <?php
                 for ($i = 8; $i <= 18; $i++) {
+
                     echo '    <option value="' . $i . '">' . $i . ' H</option>';
                 }
                 ?>
@@ -59,7 +81,7 @@ $con->close();
             <input type="date" name="dateFrom" value="<?php echo date('Y-m-d'); ?>" />
             <br />
             description:
-            <textarea name="description" id="" cols="30" rows="5" required></textarea><br>
+            <textarea name="description" id="" cols="30" rows="5"></textarea><br>
 
             <button class="sign" type="submit" name="subComment">Send</button>
 
@@ -79,6 +101,13 @@ $con->close();
         echo $_POST['dateFrom'] . '<br>';
         echo $_POST['description'] . '<br>';
     }
+
+
+
+    $con->close();
+
+
+
     ?>
 
 </body>
