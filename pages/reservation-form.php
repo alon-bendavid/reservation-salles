@@ -39,7 +39,7 @@ $con->close();
         <h1>Reservation form</h1>
         <?php echo "User: " . $_SESSION['user'][1]; ?>
         <form action="" method="post">
-            Title:<input type="text" name="title">
+            Title:<input type="text" name="title" required>
 
 
             Start time: <select name="startHour">
@@ -59,7 +59,7 @@ $con->close();
             <input type="date" name="dateFrom" value="<?php echo date('Y-m-d'); ?>" />
             <br />
             description:
-            <textarea name="description" id="" cols="30" rows="5"></textarea><br>
+            <textarea name="description" id="" cols="30" rows="5" required></textarea><br>
 
             <button class="sign" type="submit" name="subComment">Send</button>
 
