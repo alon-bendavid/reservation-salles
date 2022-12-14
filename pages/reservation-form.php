@@ -40,51 +40,44 @@ $con->close();
         <?php echo "User: " . $_SESSION['user'][1]; ?>
         <form action="" method="post">
             Title:<input type="text" name="title">
-            Start hour: <select id="startHour" name="startHour">
-                <?php for ($i = 8; $i + 1 < 20; $i++) {  ?>
-                    <?php echo '<option value="' . $i . '"> ' . $i . ' H</option>'   ?>
-                <?php } ?>
-            </select>
-            Finish hour: <select id="startHour" name="startHour">
-                <?php for ($x = 9; $x + 1 < 21; $x++) {  ?>
-                    <option value=""><?php echo $x . "H" ?></option>
-                <?php } ?><br>
 
+
+            Start time: <select name="startHour">
+                <?php
+                for ($i = 8; $i <= 18; $i++) {
+                    echo '    <option value="' . $i . '">' . $i . ' H</option>';
+                }
+                ?>
+            </select>
+            finsh time: <select name="finishHour">
+                <?php
+                for ($x = 9; $x <= 19; $x++) {
+                    echo '    <option value="' . $x . '">' . $x . ' H</option>';
+                }
+                ?>
             </select>
             <input type="date" name="dateFrom" value="<?php echo date('Y-m-d'); ?>" />
             <br />
-
             description:
             <textarea name="description" id="" cols="30" rows="5"></textarea><br>
 
             <button class="sign" type="submit" name="subComment">Send</button>
 
 
-        </form>
-        <?php if (isset($_POST['subComment'])) {
 
-            echo $_POST['startHour'];
-        }
-        echo "opa";
-        ?>
-        <form method="POST">
-            <select name="dropdown">
-                <?php
-                for ($x = 1; $x <= 12; $x++) {
-                    echo '    <option value="' . $x . '">' . $x . '</option>';
-                }
-                ?>
-            </select>
-            <input type="submit" value="Submit">
 
         </form>
+
 
     </div>
     <?php
-    if (isset($_POST['dropdown'])) {
+    if (isset($_POST['subComment'])) {
         // cast to integer to avoid malicious values
-        $dropdown = (int)$_POST['dropdown'];
-        echo $dropdown;
+        echo $_POST['title'] . '<br>';
+        echo $_POST['startHour'] . '<br>';
+        echo $_POST['finishHour'] . '<br>';
+        echo $_POST['dateFrom'] . '<br>';
+        echo $_POST['description'] . '<br>';
     }
     ?>
 
