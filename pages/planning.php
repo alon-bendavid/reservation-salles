@@ -90,44 +90,46 @@ include('header.php');
 
     ?>
     <table>
-
         <?php
-        date_default_timezone_set('europe/paris');
+        // Set start and end times for the table
+        $start_time = strtotime('9:00am');
+        $end_time = strtotime('7:00pm');
 
-        $start_date = date("Y/m/d ");
-        $end_date = date("Y-m-d ", strtotime("$start_date +7 day"));
-        while (strtotime($start_date) <= strtotime($end_date)) {
+        // Use current date as the starting day of the week
+        $date = new DateTime();
+        $monday = clone $date;
+        $monday->modify('monday this week');
+
+        // Create an array of dates for the week
+        $dates = array();
+        for ($i = 0; $i < 7; $i++) {
+            $dates[] = clone $monday;
+            $monday->modify('+1 day');
+        }
         ?>
+
+        <table>
             <tr>
-
-                <?php echo '<th>' . "$start_date" . '<th>';
-
-                $start_date = date("Y-m-d ", strtotime("+1 days", strtotime($start_date)));
-                ?>
-                <?php
-                $start = 8;
-                $end = 19;
-                for ($time = $start; $time <= $end; $time++) {
-                ?>
-
-
-                    <?php
-                    echo '<td>' . date("H:00:00", mktime($time)) . '</td>';
-                    ?>
-
-
-
-                <?php
-                }
-                ?>
-
-
+                <th>&nbsp;</th>
+                <?php foreach ($dates as $day) : ?>
+                    <th><?php echo $day->format('Y-m-d'); ?></th>
+                <?php endforeach; ?>
             </tr>
-        <?php } ?>
-
+            <?php
+            // Loop through the hours
+            for ($time = $start_time; $time <= $end_time; $time += 3600) : ?>
+                <tr>
+                    <th><?php echo date("H:00:00", $time); ?></th>
+                    <?php foreach ($dates as $day) : ?>
+                        <td><?php echo date("H:00:00", $time); ?></td>
+                    <?php endforeach; ?>
+                </tr>
+            <?php endfor; ?>
+        </table>
 
 
     </table>
 </body>
+<!-- &nbsp; -->
 
 </html>
