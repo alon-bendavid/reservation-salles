@@ -111,20 +111,22 @@ include('header.php');
         <table>
             <tr>
                 <th>&nbsp;</th>
-                <?php foreach ($dates as $day) : ?>
+                <?php foreach ($dates as $day) {  ?>
                     <th><?php echo $day->format('Y-m-d'); ?></th>
-                <?php endforeach; ?>
+                <?php }  ?>
             </tr>
             <?php
             // Loop through the hours
-            for ($time = $start_time; $time <= $end_time; $time += 3600) : ?>
+            for ($time = $start_time; $time <= $end_time; $time += 3600) {   ?>
                 <tr>
                     <th><?php echo date("H:00:00", $time); ?></th>
-                    <?php foreach ($dates as $day) : ?>
+                    <?php foreach ($dates as $day) {  ?>
+                        <!-- <td>&nbsp;</td> -->
                         <td><?php echo date("H:00:00", $time); ?></td>
-                    <?php endforeach; ?>
+
+                    <?php } ?>
                 </tr>
-            <?php endfor; ?>
+            <?php } ?>
         </table>
 
 
