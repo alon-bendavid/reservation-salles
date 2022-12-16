@@ -89,6 +89,9 @@ select{
       display: block;
     }
   }
+  .Disponible {
+    background-color: #4CAF50;
+  }
 
 
 table {

@@ -139,7 +139,9 @@ include('header.php');
                             echo "<td>its 10 today</td>";
                         } else {
                         ?>
-                            <td><?php echo date("H:00:00", $time); ?></td>
+                            <!-- <td><?php echo date("H:00:00", $time); ?></td> -->
+                            <td class="Disponible"><?php echo "Disponible"; ?></td>
+
                         <?php } ?>
                     <?php } ?>
                 </tr>
