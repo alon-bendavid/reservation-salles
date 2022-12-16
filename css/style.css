@@ -90,13 +90,15 @@ select{
     }
   }
   .Disponible {
-    background-color: #4CAF50;
+    background-color: #96d496;
   }
 
 
 table {
   border-collapse: collapse;
   width: 90%;
+  margin-top: 2%;
+
 }
 
 th, td {
@@ -105,6 +107,7 @@ th, td {
   text-align: center;
   
 }
+
 
 th {
   background-color: #ddd;

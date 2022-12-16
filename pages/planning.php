@@ -1,6 +1,7 @@
 <?php
 include('../includes/connect.php');
 include('header.php');
+include('../includes/functions.php');
 
 // $new_date = date('Y-m-d', strtotime($_POST['dateFrom']));
 // echo $new_date;
@@ -116,7 +117,7 @@ include('header.php');
             <tr>
                 <th>&nbsp;</th>
                 <?php foreach ($dates as $day) {  ?>
-                    <th><?php echo $day->format('l M'); ?></th>
+                    <th><?php echo $day->format('Y-m-d'); ?></th>
                     <?php
 
 
@@ -124,7 +125,7 @@ include('header.php');
                 <?php }  ?>
             </tr>
             <?php
-            // Loop through the hours
+            // Loop through the hoursd
             for ($time = $start_time; $time <= $end_time; $time += 3600) {   ?>
                 <tr>
                     <th><?php echo date("H:00:00", $time); ?></th>
@@ -132,11 +133,19 @@ include('header.php');
                     <?php foreach ($dates as $day) {  ?>
 
                         <?php
-                        if (date("H:00:00", $time) == "10:00:00" && $day->format('Y-m-d') == '2022-12-15') {
+                        $eventDate = $day->format('Y-m-d') . " " . date("H:00:00", $time);
+                        // $sql = "SELECT debut FROM reservations ";
+                        // $query = mysqli_query($con, $sql);
+                        // $start = mysqli_fetch_array($query);
 
 
 
-                            echo "<td>its 10 today</td>";
+                        if (date("H:00:00", $time) == eventHour($events['debut']) && $day->format('Y-m-d') == eventDate($events['debut'])) {
+                            // if ($eventDate == checkEvents($testEvents)) {
+
+
+
+                            echo "<td>Event !!!!</td>";
                         } else {
                         ?>
                             <!-- <td><?php echo date("H:00:00", $time); ?></td> -->
@@ -146,12 +155,22 @@ include('header.php');
                     <?php } ?>
                 </tr>
             <?php } ?>
-            <?php print_r($day);
 
-            ?>
         </table>
-        <!-- ////////////////////////////////////////// second table //////////////////////////////////////// -->
+        <!-- ////////////////////////////////////////// testing area //////////////////////////////////////// -->
+        <?php
+        eventHour($events['debut']);
+        echo '<br>';
+        eventDate($events['debut']);
+        echo '<br>';
+        // checkEvents($events);
 
+
+        // print_r($testEvents);
+        // print_r($testEvents[2][3]);
+        echo $eventDate;
+        checkEvents($testEvents[2][3]);
+        ?>
 </body>
 <!-- &nbsp; -->
 
