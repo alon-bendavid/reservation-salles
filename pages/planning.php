@@ -108,6 +108,7 @@ include('header.php');
         }
         ?>
         <?php
+        $event = false;
 
         ?>
 
@@ -117,7 +118,9 @@ include('header.php');
                 <?php foreach ($dates as $day) {  ?>
                     <th><?php echo $day->format('Y-m-d'); ?></th>
                     <?php
-                    // $dates [$day]=
+                    if ($day->format('Y-m-d') == '2022-12-13') {
+                        $event = true;
+                    }
 
                     ?>
                 <?php }  ?>
@@ -131,9 +134,11 @@ include('header.php');
                     <?php foreach ($dates as $day) {  ?>
 
                         <?php
-                        if (date("H:00:00", $time) == "10:00:00") {
+                        if (date("H:00:00", $time) == "10:00:00" && $day->format('Y-m-d') == '2022-12-13') {
 
-                            echo "<td>its 10</td>";
+
+
+                            echo "<td>its 10 today</td>";
                         } else {
                         ?>
                             <td><?php echo date("H:00:00", $time); ?></td>
@@ -141,6 +146,9 @@ include('header.php');
                     <?php } ?>
                 </tr>
             <?php } ?>
+            <?php print_r($day);
+
+            ?>
         </table>
         <!-- ////////////////////////////////////////// second table //////////////////////////////////////// -->
 
