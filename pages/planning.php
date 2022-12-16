@@ -98,7 +98,7 @@ include('header.php');
         // Use current date as the starting day of the week
         $date = new DateTime();
         $monday = clone $date;
-        $monday->modify('monday this week');
+        $monday->modify('last sunday');
 
         // Create an array of dates for the week
         $dates = array();
@@ -107,12 +107,19 @@ include('header.php');
             $monday->modify('+1 day');
         }
         ?>
+        <?php
+
+        ?>
 
         <table>
             <tr>
                 <th>&nbsp;</th>
                 <?php foreach ($dates as $day) {  ?>
                     <th><?php echo $day->format('Y-m-d'); ?></th>
+                    <?php
+                    // $dates [$day]=
+
+                    ?>
                 <?php }  ?>
             </tr>
             <?php
@@ -120,17 +127,23 @@ include('header.php');
             for ($time = $start_time; $time <= $end_time; $time += 3600) {   ?>
                 <tr>
                     <th><?php echo date("H:00:00", $time); ?></th>
-                    <?php foreach ($dates as $day) {  ?>
-                        <!-- <td>&nbsp;</td> -->
-                        <td><?php echo date("H:00:00", $time); ?></td>
 
+                    <?php foreach ($dates as $day) {  ?>
+
+                        <?php
+                        if (date("H:00:00", $time) == "10:00:00") {
+
+                            echo "<td>its 10</td>";
+                        } else {
+                        ?>
+                            <td><?php echo date("H:00:00", $time); ?></td>
+                        <?php } ?>
                     <?php } ?>
                 </tr>
             <?php } ?>
         </table>
+        <!-- ////////////////////////////////////////// second table //////////////////////////////////////// -->
 
-
-    </table>
 </body>
 <!-- &nbsp; -->
 
