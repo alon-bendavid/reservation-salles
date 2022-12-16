@@ -116,11 +116,9 @@ include('header.php');
             <tr>
                 <th>&nbsp;</th>
                 <?php foreach ($dates as $day) {  ?>
-                    <th><?php echo $day->format('Y-m-d'); ?></th>
+                    <th><?php echo $day->format('l M'); ?></th>
                     <?php
-                    if ($day->format('Y-m-d') == '2022-12-13') {
-                        $event = true;
-                    }
+
 
                     ?>
                 <?php }  ?>
@@ -134,7 +132,7 @@ include('header.php');
                     <?php foreach ($dates as $day) {  ?>
 
                         <?php
-                        if (date("H:00:00", $time) == "10:00:00" && $day->format('Y-m-d') == '2022-12-13') {
+                        if (date("H:00:00", $time) == "10:00:00" && $day->format('Y-m-d') == '2022-12-15') {
 
 
 
