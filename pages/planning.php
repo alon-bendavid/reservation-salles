@@ -140,30 +140,12 @@ include('../includes/functions.php');
                         $eventDate = $day->format('Y-m-d ') .  date("H:00:00", $time);
                         $reserved = false;
                         foreach ($testEvents as $event) {
-                            if ($eventDate == $event['debut']) {
-
-                                // $sql = "SELECT debut FROM reservations ";
-                                // $query = mysqli_query($con, $sql);
-                                // $start = mysqli_fetch_array($query);
+                            // if ($eventDate == $event['debut'] or $eventDate == $event['fin']) {
+                            if ($eventDate == $event['debut'] or $eventDate == $event['fin']) {
 
 
-                                // echo $eventDate . '<br>';
 
-                                // if (date("H:00:00", $time) == eventHour($events['debut']) && $day->format('Y-m-d') == eventDate($events['debut'])) {
-                                // if ($eventDate->format('Y-m-d ') == date("H:00:00", '2022-12-12 14:00:00')) {
 
-                                //     $sql = "SELECT debut FROM reservations where debut='2022-12-12 14:00:00'";
-                                // $query = mysqli_query($con, $sql);
-
-                                // if ($query) {
-                                //     if (mysqli_num_rows($query) > 0) {
-                                //         echo "<td>Event !!!!</td>";
-                                //     } else {
-                                //         echo 'not found';
-                                //     }
-                                // }
-
-                                // if (array_key_exists('2022-12-12 14:00:00', $testEvents)) {
                                 $reserved = true;
                             }
                         } ?>
@@ -179,22 +161,10 @@ include('../includes/functions.php');
         </table>
         <!-- ////////////////////////////////////////// testing area //////////////////////////////////////// -->
         <?php
-        // eventHour($events['debut']);
-        // echo '<br>';
-        // eventDate($events['debut']);
-        // echo '<br>';
-        // checkEvents($events);
 
 
-        // print_r($testEvents);
-        // print_r($testEvents[2][3]);
-        // echo $eventDate;
-        // var_dump(checkEvents($testEvents));
-        // echo $events['debut'];
-        // var_dump($events);
-        // print_r($testEvents);  
-        var_dump($testEvents);
-        echo '<br>';
+        // var_dump($testEvents);
+        // echo '<br>';
         ?>
 </body>
 <!-- &nbsp; -->
