@@ -39,7 +39,7 @@ include('../includes/functions.php');
             <tr>
                 <th>&nbsp;</th>
                 <?php foreach ($dates as $day) {  ?>
-                    <th><?php echo $day->format('l d M y'); ?></th>
+                    <th><?php echo $day->format('l d-M Y'); ?></th>
 
 
                 <?php }  ?>
@@ -69,19 +69,15 @@ include('../includes/functions.php');
                             $db_start_hour = str_split($event['debut'], 10);
                             $db_finish_hour = str_split($event['fin'], 10);
                             $db_start_date = str_split($event['debut'], 10);
-
-
                             // if (date($eventDate) == date($event['debut']) or date($eventDate) <= date($event['fin'])) { //01 half working
                             if (date($eventDate) >= date($event['debut']) && date($eventDate) < date($event['fin'])) { // condition to check if event exist
-
-
                                 $reserved = true;
                             }
                         } ?>
                         <?php if ($reserved) : ?>
-                            <td class="event">EVENT !!!!</td>
+                            <td class="event"><a href="reservation.php">event disply</a></td>
 
-                        <?php elseif (date($hour == 19) or $date == 'saturday ') : ?>
+                        <?php elseif (date($hour == 19)) : ?>
                             <td class="closed">closed</td>
 
                         <?php else : ?>
@@ -107,5 +103,7 @@ include('../includes/functions.php');
 
         ?> -->
 <!-- &nbsp; -->
+<?php
+?>
 
 </html>
