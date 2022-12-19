@@ -110,7 +110,6 @@ include('../includes/functions.php');
         ?>
         <?php
         $event = false;
-
         ?>
 
         <table>
@@ -118,8 +117,9 @@ include('../includes/functions.php');
                 <th>&nbsp;</th>
                 <?php foreach ($dates as $day) {  ?>
                     <th><?php echo $day->format('Y-m-d'); ?></th>
-                    <?php
 
+                    <?php
+                    // echo $day->format('Y-m-d') .    '<br>';
 
                     ?>
                 <?php }  ?>
@@ -129,47 +129,72 @@ include('../includes/functions.php');
             for ($time = $start_time; $time <= $end_time; $time += 3600) {   ?>
                 <tr>
                     <th><?php echo date("H:00:00", $time); ?></th>
+                    <?php
+
+                    ?>
 
                     <?php foreach ($dates as $day) {  ?>
 
                         <?php
-                        $eventDate = $day->format('Y-m-d') . " " . date("H:00:00", $time);
-                        // $sql = "SELECT debut FROM reservations ";
-                        // $query = mysqli_query($con, $sql);
-                        // $start = mysqli_fetch_array($query);
+
+                        $eventDate = $day->format('Y-m-d ') .  date("H:00:00", $time);
+                        $reserved = false;
+                        foreach ($testEvents as $event) {
+                            if ($eventDate == $event['debut']) {
+
+                                // $sql = "SELECT debut FROM reservations ";
+                                // $query = mysqli_query($con, $sql);
+                                // $start = mysqli_fetch_array($query);
 
 
+                                // echo $eventDate . '<br>';
 
-                        if (date("H:00:00", $time) == eventHour($events['debut']) && $day->format('Y-m-d') == eventDate($events['debut'])) {
-                            // if ($eventDate == checkEvents($testEvents)) {
+                                // if (date("H:00:00", $time) == eventHour($events['debut']) && $day->format('Y-m-d') == eventDate($events['debut'])) {
+                                // if ($eventDate->format('Y-m-d ') == date("H:00:00", '2022-12-12 14:00:00')) {
 
+                                //     $sql = "SELECT debut FROM reservations where debut='2022-12-12 14:00:00'";
+                                // $query = mysqli_query($con, $sql);
 
+                                // if ($query) {
+                                //     if (mysqli_num_rows($query) > 0) {
+                                //         echo "<td>Event !!!!</td>";
+                                //     } else {
+                                //         echo 'not found';
+                                //     }
+                                // }
 
-                            echo "<td>Event !!!!</td>";
-                        } else {
-                        ?>
-                            <!-- <td><?php echo date("H:00:00", $time); ?></td> -->
-                            <td class="Disponible"><?php echo "Disponible"; ?></td>
-
-                        <?php } ?>
+                                // if (array_key_exists('2022-12-12 14:00:00', $testEvents)) {
+                                $reserved = true;
+                            }
+                        } ?>
+                        <?php if ($reserved) : ?>
+                            <td>EVENT !!!!</td>
+                        <?php else : ?>
+                            <td class="Disponible"><?php print_r($eventDate); ?></td>
+                        <?php endif; ?>
                     <?php } ?>
+                <?php } ?>
                 </tr>
-            <?php } ?>
 
         </table>
         <!-- ////////////////////////////////////////// testing area //////////////////////////////////////// -->
         <?php
-        eventHour($events['debut']);
-        echo '<br>';
-        eventDate($events['debut']);
-        echo '<br>';
+        // eventHour($events['debut']);
+        // echo '<br>';
+        // eventDate($events['debut']);
+        // echo '<br>';
         // checkEvents($events);
 
 
         // print_r($testEvents);
         // print_r($testEvents[2][3]);
-        echo $eventDate;
-        checkEvents($testEvents[2][3]);
+        // echo $eventDate;
+        // var_dump(checkEvents($testEvents));
+        // echo $events['debut'];
+        // var_dump($events);
+        // print_r($testEvents);  
+        var_dump($testEvents);
+        echo '<br>';
         ?>
 </body>
 <!-- &nbsp; -->
