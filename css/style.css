@@ -95,6 +95,9 @@ select{
   .event{
     background-color: rgb(126, 165, 236);
   }
+  .closed{
+    background-color: rgb(226, 123, 123);
+  }
 
 
 table {
