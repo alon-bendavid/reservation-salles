@@ -92,6 +92,9 @@ select{
   .Disponible {
     background-color: #96d496;
   }
+  .event{
+    background-color: rgb(126, 165, 236);
+  }
 
 
 table {

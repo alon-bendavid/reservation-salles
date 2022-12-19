@@ -138,10 +138,30 @@ include('../includes/functions.php');
                         <?php
 
                         $eventDate = $day->format('Y-m-d ') .  date("H:00:00", $time);
+
+                        $hour = (int)date("H:00:00", $time);
+                        $date = (int)date($day->format('Y-m-d '));
+
+
+
+                        $day_of_event = false;
                         $reserved = false;
                         foreach ($testEvents as $event) {
+                            $db_start_hour = str_split($event['debut'], 10);
+                            $db_finish_hour = str_split($event['fin'], 10);
+                            $db_start_date = str_split($event['debut'], 10);
+                            // if ($db_start_date[0] . $db_start_hour[1] == $eventDate) {
+
                             // if ($eventDate == $event['debut'] or $eventDate == $event['fin']) {
-                            if ($eventDate == $event['debut'] or $eventDate == $event['fin']) {
+
+                            // if (date($eventDate) == date($event['debut']) or date($eventDate) <= date($event['fin'])) { //01 half working
+                            if (date($eventDate) >= date($event['debut']) && date($eventDate) <= date($event['fin'])) { //02 
+
+                                // $deliverytime->format('H');
+                                // if ($eventDate == $db_start_hour[1]) {
+                                //     $day_of_event = true;
+                                // }
+                                // if ($hour >= $db_start_hour or $hour <= $db_finish_hour) {
 
 
 
@@ -150,9 +170,11 @@ include('../includes/functions.php');
                             }
                         } ?>
                         <?php if ($reserved) : ?>
-                            <td>EVENT !!!!</td>
+                            <td class="event">EVENT !!!!</td>
                         <?php else : ?>
                             <td class="Disponible"><?php print_r($eventDate); ?></td>
+                            <!-- <td class="Disponible"><?php echo "$hour"; ?></td> -->
+
                         <?php endif; ?>
                     <?php } ?>
                 <?php } ?>
@@ -167,6 +189,12 @@ include('../includes/functions.php');
         // echo '<br>';
         ?>
 </body>
+<?php var_dump((int)$event['debut']);
+$arr2 = str_split($event['debut'], 10);
+print_r((int)$db_start_date[1]);
+
+
+?>
 <!-- &nbsp; -->
 
 </html>
