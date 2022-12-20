@@ -69,13 +69,17 @@ include('../includes/functions.php');
                             $db_start_hour = str_split($event['debut'], 10);
                             $db_finish_hour = str_split($event['fin'], 10);
                             $db_start_date = str_split($event['debut'], 10);
+                            // $_GET = array();
                             // if (date($eventDate) == date($event['debut']) or date($eventDate) <= date($event['fin'])) { //01 half working
+
                             if (date($eventDate) >= date($event['debut']) && date($eventDate) < date($event['fin'])) { // condition to check if event exist
+                                // $_GET['titre'] = $event['titre'];
+                                // array_push($_GET['titre'], $event);
                                 $reserved = true;
+                                echo '  <td class="event"><a href="reservation.php">    ' . $event["titre"] . '   </a></td>';
                             }
                         } ?>
                         <?php if ($reserved) : ?>
-                            <td class="event"><a href="reservation.php">event disply</a></td>
 
                         <?php elseif (date($hour == 19)) : ?>
                             <td class="closed">closed</td>
@@ -104,6 +108,7 @@ include('../includes/functions.php');
         ?> -->
 <!-- &nbsp; -->
 <?php
+// var_dump($_GET);
 ?>
 
 </html>
