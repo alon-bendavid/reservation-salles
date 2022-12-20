@@ -76,7 +76,7 @@ include('../includes/functions.php');
                                 // $_GET['titre'] = $event['titre'];
                                 // array_push($_GET['titre'], $event);
                                 $reserved = true;
-                                echo '  <td class="event"><a href="reservation.php">    ' . $event["titre"] . '   </a></td>';
+                                echo '  <td class="event"><a href="reservation.php">    ' . $event["titre"] . ' <br>   ' . $event["description"] . ' </a></td>';
                             }
                         } ?>
                         <?php if ($reserved) : ?>
