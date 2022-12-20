@@ -36,7 +36,7 @@ if (isset($_POST['loginSub'])) {
         } else {
             echo "<p class='error'>Password is worng, please try again</p>";
             // echo $hashed_password;
-            var_dump($hash);
+            // var_dump($hash);
         }
     } else {
         echo "<p class='error'>No user found with that name</p>";

@@ -11,15 +11,15 @@ include('header.php');
             // echo "<p class='message'> welcome " . $_SESSION['user'][1] . " you are now logged in! </p>";
 
             ?>
-            <h1 class="viedo_text">Home page</h1>
+            <h1 class="viedo_text">Reservation site</h1>
             <p class="viedo_text">
 
                 <?php if (isset($_SESSION['user'][1])) {  ?>
-            <p> Welcome <?php echo  $_SESSION['user'][1]; ?> , you can reserve your room now!</p>
+            <h2> Welcome <?php echo  $_SESSION['user'][1]; ?> , you can make a reserve now!</h2>
 
 
         <?php } else {
-                    echo "welcome guest please connect";
+                    echo " <h3 >Welcome guest, connect to make a reservation</h3>";
                 } ?>
 
         <video class="video" autoplay loop muted src="..\media\video.mp4"></video>

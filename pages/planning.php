@@ -49,8 +49,8 @@ include('../includes/functions.php');
             for ($time = $start_time; $time <= $end_time; $time += 3600) {   ?>
                 <tr>
                     <?php if (date("H:00", $time)) ?>
-                    <th><?php echo  date("H:00", $time) . " H"; ?></th><?php
-                                                                        ?>
+                    <th class="hours"><?php echo  date("H:00", $time) . " H"; ?></th><?php
+                                                                                        ?>
 
                     <?php foreach ($dates as $day) {  ?>
 

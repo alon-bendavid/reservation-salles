@@ -40,12 +40,12 @@ if (isset($_POST['subComment'])) {
 
     <div class="login-form">
         <h1>Reservation form</h1>
-        <?php echo "User: " . $_SESSION['user'][1]; ?>
+        <h3><?php echo "User: " . $_SESSION['user'][1]; ?></h3>
         <form action="" method="post">
-            Title:<input type="text" name="title">
+            <h3>Title:</h3><input type="text" name="title">
 
 
-            Start time: <select name="startHour">
+            <h3> Start time:</h3> <select name="startHour">
                 <?php
                 for ($i = 8; $i <= 18; $i++) {
 
@@ -53,7 +53,7 @@ if (isset($_POST['subComment'])) {
                 }
                 ?>
             </select>
-            finsh time: <select name="finishHour">
+            <h3> finsh time: </h3><select name="finishHour">
                 <?php
                 for ($x = 9; $x <= 19; $x++) {
                     echo '    <option value="' . $x . '">' . $x . ' H</option>';
@@ -62,7 +62,7 @@ if (isset($_POST['subComment'])) {
             </select>
             <input type="date" name="dateFrom" value="<?php echo date('Y-m-d'); ?>" />
             <br />
-            description:
+            <h3> description:</h3>
             <textarea name="description" id="" cols="30" rows="5"></textarea><br>
 
             <button class="sign" type="submit" name="subComment">Send</button>
