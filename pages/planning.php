@@ -113,6 +113,7 @@ include('../includes/functions.php');
 <!-- &nbsp; -->
 <?php
 // var_dump($_GET);
+mysqli_close($con);
 ?>
 
 </html>
