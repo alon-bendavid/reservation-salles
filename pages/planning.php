@@ -88,7 +88,7 @@ include('../includes/functions.php');
                             <td class="closed">closed</td>
 
                         <?php else : ?>
-                            <td class="">Disponible</td>
+                            <td>Disponible</td>
                         <?php endif; ?>
 
                     <?php } ?>

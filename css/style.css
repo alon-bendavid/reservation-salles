@@ -1,4 +1,31 @@
 /* input{box-sizing:border-box}  */
+h1{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+}
+h2{
+  font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+font-size: 200%;
+}
+h3{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300; 
+  font-size: small;
+
+}
+td{
+      font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: medium;
+  
+}
+th{
+  font-family: 'Montserrat', sans-serif;
+font-weight: bold;
+font-size: medium;
+
+}
 body{
     display: flex;
     flex-direction: column;
@@ -128,4 +155,10 @@ tr:nth-child(even) {
 }
 tr{
  height: 55px;
+}
+.message{
+  /* position: absolute; */
+  font-family: 'Montserrat', sans-serif;
+color: rgb(1, 109, 151);
+font-size: larger;
 }

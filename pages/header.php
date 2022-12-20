@@ -36,7 +36,7 @@ session_start();
 
             <?php
             if (isset($_SESSION['user'])) {
-                echo " <a href='reservation-form.php'>Reserve a room</a> ";
+                echo " <a href='reservation-form.php'>Reserve an event!</a> ";
                 echo " <a href='profil.php'>Profil</a> ";
                 echo " <a href='logout.php'> Logout</a> ";
             } else {
