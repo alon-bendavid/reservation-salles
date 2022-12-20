@@ -75,10 +75,13 @@ include('../includes/functions.php');
                             if (date($eventDate) >= date($event['debut']) && date($eventDate) < date($event['fin'])) { // condition to check if event exist
                                 // $_GET['titre'] = $event['titre'];
                                 // array_push($_GET['titre'], $event);
+                                // $id = $_GET[$event['id']];
                                 $reserved = true;
-                                echo '  <td class="event"><a href="reservation.php">    ' . $event["titre"] . ' <br>   ' . $event["description"] . ' </a></td>';
+                                echo '  <td class="event"><a href="reservation.php"  >   ' . $event["titre"] . ' <br>   ' . $event["description"] . ' </a></td>';
+                                // echo '  <td class="event" type="submit" value="$_GET[$event["id"]]">   ' . $event["titre"] . ' <br>   ' . $event["description"] . '' . $event["id"] . '  </td>';
                             }
                         } ?>
+
                         <?php if ($reserved) : ?>
 
                         <?php elseif (date($hour == 19)) : ?>
@@ -87,6 +90,7 @@ include('../includes/functions.php');
                         <?php else : ?>
                             <td class="">Disponible</td>
                         <?php endif; ?>
+
                     <?php } ?>
                 <?php } ?>
                 </tr>
@@ -104,7 +108,7 @@ include('../includes/functions.php');
         $arr2 = str_split($event['debut'], 10);
         print_r((int)$db_start_date[1]);
 
-
+        var_dump($_GET[$event['id']]);
         ?> -->
 <!-- &nbsp; -->
 <?php
