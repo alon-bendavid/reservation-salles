@@ -77,7 +77,7 @@ include('../includes/functions.php');
                                 // array_push($_GET['titre'], $event);
                                 // $id = $_GET[$event['id']];
                                 $reserved = true;
-                                echo '  <td class="event"><a href="reservation.php?id=' . $event['id_utilisateur'] . '"  >   ' . $event["titre"] . ' <br>   ' . $event["description"] . ' </a></td>';
+                                echo '  <td class="event"><a href="reservation.php?id=' . $event['id'] . '"  >   ' . $event["titre"] . ' <br>   ' . $event["description"] . ' </a></td>';
                                 // echo '  <td class="event" type="submit" value="$_GET[$event["id"]]">   ' . $event["titre"] . ' <br>   ' . $event["description"] . '' . $event["id"] . '  </td>';
                             }
                         } ?>
