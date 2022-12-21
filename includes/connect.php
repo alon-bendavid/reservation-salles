@@ -1,7 +1,7 @@
 <?php
 //conect into database in plesk
-// $con = mysqli_connect("localhost", "book", "laplateforme", "ben-david-alon_livreor");
-// if (!$con = mysqli_connect("localhost", "book", "laplateforme", "ben-david-alon_livreor")) {
+// $con = mysqli_connect("localhost", "reserveMeToday50", "laplateforme", "ben-david-alon_reservationsalles");
+// if (!$con = mysqli_connect("localhost", "reserveMeToday50", "laplateforme", "ben-david-alon_reservationsalles")) {
 //     die("failed to connect!");
 // }
 
