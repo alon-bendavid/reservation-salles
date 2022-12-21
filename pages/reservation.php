@@ -23,7 +23,7 @@ $testEvents = mysqli_fetch_all($query, MYSQLI_ASSOC);
     <?php
     foreach ($testEvents as $info) :
     ?>
-        <div>
+        <div class="details">
 
             <!-- <h2><?php var_dump($user); ?></h2> -->
 

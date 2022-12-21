@@ -193,3 +193,12 @@ background-color: transparent;
 border: none;
 
 }
+.details{
+  width: 35%;
+  height: 45%;
+  background-color: #ccc;
+  padding: 2em;
+  border-radius: 35px;
+  margin-top: 5%;
+
+}
