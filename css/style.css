@@ -122,6 +122,11 @@ select{
     text-decoration: none;
     font-size: 18px;
   }
+ a:hover {
+    background-color: rgb(218, 218, 218);
+    color: rgb(0, 0, 0);
+  }
+
 
   /* Add a hover effect for navbar links */
 
